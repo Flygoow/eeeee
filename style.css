@@ -1,0 +1,20 @@
+body {
+  overflow: hidden;
+  font-family: 'Bebas Neue', cursive;
+  color:black;
+  letter-spacing: 2px;
+background-color:white;
+background-attachment:fixed;
+margin:0;
+background-repeat:no-repeat;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: #ffb01e;
+  color: #edf0f1;
+}
+

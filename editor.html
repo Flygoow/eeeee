@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet M3206</title>
+  <meta name="author" content="Aldo Gonzalez-Lorenzo">
+  <style>
+    div#canvasContainer { /* limiter la taille du canvas */
+      width: 50%;
+      min-width: 300px;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+      <a href="index.php">Accueil</a>
+  </nav>
+  <p>
+    Instructions :
+  </p>
+  <ul>
+    <li>
+      Clickez sur l'image pour zoomer sur un point.
+    </li>
+    <li>
+      Incrémentez le nombre d'iterations pour avoir plus de détails
+    </li>
+    <li>
+      Cliquez sur «&nbsp;Render&nbsp;» ou tapez sur la touche <kbd>Entrée</kbd> pour générer la nouvelle image
+    </li>
+    <li>
+      Cliquez sur «&nbsp;Reset&nbsp;» pour revenir à la vue initiale
+    </li>
+  </ul>
+  <form id="settingsForm" action="javascript:draw();">
+    <div>
+      Iterations 
+      <input type="button" id="dec_iterations" value="&times; 0,5">
+      <input size="6" type="text" id="steps" value="25">
+      <input type="button" id="inc_iterations" value="&times; 2">
+    </div>
+    <div>
+      Zoom
+      <input type="button" id="dec_zoom" value="&times; 0,5">
+      <input size="6" type="text" id="zoom" value="1">
+      <input type="button" id="inc_zoom" value="&times; 2">
+    </div>
+    <div>
+      <input type="submit" id="submitButton" value="Render">
+      <input type="reset" id="resetButton" value="Reset">
+    </div>
+  </form>
+
+  <div id="canvasContainer">
+    <canvas id="canvasMandelbrot" width="0" height="0"></canvas>
+  </div>
+
+  <form method="POST" action="include/add_snapshot.php">
+    <label for="_author">Nom</label>
+    <input id="_author" name="author" type="text" required><br>
+    <label for="_description">Description</label>
+    <textarea id="_description" name="description"></textarea>
+    <input id="_cx" name="cx" type="hidden">
+    <input id="_cy" name="cy" type="hidden">
+    <input id="_scale" name="scale" type="hidden">
+    <input id="_maxiter" name="maxiter" type="hidden">
+    <input id="_snapshot" name="snapshot" type="hidden">
+    <input type="submit" value="Partager">
+  </form>
+  <script type="text/javascript" src="include/mandelbrot.js"></script>
+</body>
+
+</html>
